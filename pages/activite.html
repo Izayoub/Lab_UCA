@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GREFSO-Marrakech | Groupe de Recherche sur les Entreprises Familiales</title>
+    <meta name="description" content="Groupe de Recherche sur les Entreprises Familiales et les Stratégies des Organisations affilié à la FSJES de l'Université Cadi Ayyad de Marrakech">
+    <meta name="keywords" content="entreprise familiale, stratégie d'organisation, recherche, Marrakech, UCAM, FSJES, doctorat, gestion">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #8E1B23;
+            --secondary-color: #E3B1AA;
+            --light-color: #F9F9F9;
+            --dark-color: #333333;
+            --accent-color: #3E1A09;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 5px 0;
+            font-size: 14px;
+        }
+
+        .logo-container {
+            padding: 20px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 80px;
+        }
+
+        /* Navigation */
+        nav {
+            background-color: var(--primary-color);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu li a {
+            color: white;
+            text-decoration: none;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu li:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            background-color: white;
+            width: 220px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 100;
+        }
+
+        .nav-menu li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .dropdown-menu li a {
+            color: var(--dark-color);
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown-menu li:hover a {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('research-hero.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            margin-bottom: 30px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        /* Content Boxes */
+        .content-boxes {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .box {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .box-header {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 15px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .box-content {
+            padding: 20px;
+        }
+
+        .box-content p {
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: var(--primary-color);
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover i {
+            transform: translateX(3px);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            font-size: 14px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .nav-menu {
+                flex-direction: column;
+            }
+
+            .dropdown-menu {
+                position: static;
+                width: 100%;
+                opacity: 1;
+                visibility: visible;
+                display: none;
+            }
+
+            .nav-menu li:hover .dropdown-menu {
+                display: block;
+            }
+
+            .hero {
+                padding: 60px 20px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Top Bar -->
+<div class="top-bar">
+    <div class="container">
+        <div class="top-bar-content">
+            Faculté des Sciences Juridiques, Economiques & Sociales - Marrakech - Daoudiate B.P. 2380, 40000 Marrakech
+        </div>
+    </div>
+</div>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="logo-container">
+            <img src="grefso-logo.png" alt="GREFSO Logo" class="logo">
+            <div class="contact-info">
+                Tél: (+212) 5 24 30 30 32<br>
+                Fax: (+212) 5 24 30 32 65
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <nav>
+            <ul class="nav-menu">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="equipe.html">Equipe</a></li>
+                <li>
+                    <a href="activite.html">Activités</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="colloque.html">Colloques</a></li>
+                        <li><a href="recherches_etudes.html">Etudes & Recherche</a></li>
+                        <li><a href="autres_activites.html">Autres activités</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="ressource.html">Ressources</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="cahier.html">Cahiers du Grefso</a></li>
+                        <li><a href="theses.html">Thèses</a></li>
+                        <li><a href="memoires.html">Mémoires</a></li>
+                        <li><a href="documents_telechargables.html">Documents téléchargeables</a></li>
+                    </ul>
+                </li>
+                <li><a href="lien_groupes.html">Liens</a></li>
+                <li>
+                    <a href="espace.html">Forum</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="institutionnels.html">Institutionnels</a></li>
+                        <li><a href="enseignants.html">Enseignants</a></li>
+                        <li><a href="doctornats.html">Doctorants</a></li>
+                    </ul>
+                </li>
+                <li><a href="partenaies.html">Partenaires</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1>Groupe de Recherche sur les Entreprises Familiales et les Stratégies des Organisations</h1>
+        <p>Promouvoir la recherche scientifique dans le domaine des entreprises familiales et des stratégies organisationnelles</p>
+    </div>
+</section>
+
+<!-- Main Content -->
+<main class="container">
+    <div class="content-boxes">
+        <div class="box">
+            <div class="box-header">Mot du Directeur</div>
+            <div class="box-content">
+                <p>Le GREFSO est le premier groupe de recherche en son genre spécialisé dans le traitement et l'analyse des problématiques relatives au contexte de la PME Familiale et les autres organisations.</p>
+                <p>Notre mission est de développer des connaissances scientifiques et de former des chercheurs compétents dans ce domaine stratégique pour l'économie marocaine.</p>
+                <a href="#" class="read-more">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header">GREFSO en Bref</div>
+            <div class="box-content">
+                <p>Créé en 2007, le Groupe de Recherche sur les Entreprises Familiales et les Stratégies des Organisations (GREFSO) est rattaché à la Faculté des Sciences Juridiques, Economiques et Sociales (FSJES) de l'Université Cadi Ayyad de Marrakech (UCAM).</p>
+                <p>Il est composé de chercheurs en sciences de gestion et disciplines associées et de jeunes doctorants travaillant sur des thématiques relatives au monde de l'entreprise familiale.</p>
+                <a href="#" class="read-more">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header">Actualité</div>
+            <div class="box-content">
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-circle" style="font-size: 8px; color: var(--primary-color); margin-right: 8px;"></i> Affiliation de nouveaux membres au Groupe de Recherche</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-circle" style="font-size: 8px; color: var(--primary-color); margin-right: 8px;"></i> Edition du premier numéro du cahier de recherche du Grefso en 2023</li>
+                </ul>
+                <a href="#" class="read-more">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header">Liens Utiles</div>
+            <div class="box-content">
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 10px;"><a href="http://www.ucam.ac.ma" style="color: var(--primary-color); text-decoration: none;">www.ucam.ac.ma</a></li>
+                    <li style="margin-bottom: 10px;"><a href="http://www.ucam.ac.ma/fsjes" style="color: var(--primary-color); text-decoration: none;">www.ucam.ac.ma/fsjes</a></li>
+                    <li style="margin-bottom: 10px;"><a href="http://www.enssup.gov.ma" style="color: var(--primary-color); text-decoration: none;">www.enssup.gov.ma</a></li>
+                    <li style="margin-bottom: 10px;"><a href="http://www.encgt.ma" style="color: var(--primary-color); text-decoration: none;">www.encgt.ma</a></li>
+                </ul>
+                <a href="#" class="read-more">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <div class="box">
+            <div class="box-header">Agenda du GREFSO</div>
+            <div class="box-content">
+                <ul style="list-style-type: none;">
+                    <li style="margin-bottom: 10px;"><i class="fas fa-circle" style="font-size: 8px; color: var(--primary-color); margin-right: 8px;"></i> Novembre 2023 : Le Grefso organisera une journée d'étude sur les TPE et développement durable à OUARZAZATE</li>
+                    <li style="margin-bottom: 10px;"><i class="fas fa-circle" style="font-size: 8px; color: var(--primary-color); margin-right: 8px;"></i> Le GREFSO et les autres groupes de recherche affiliés à la FSJES-Marrakech organiseront les ateliers doctoraux 2023-2024</li>
+                </ul>
+                <a href="#" class="read-more">En savoir plus <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos du GREFSO</h3>
+                <p>Groupe de Recherche sur les Entreprises Familiales et les Stratégies des Organisations affilié à la FSJES de l'Université Cadi Ayyad de Marrakech.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul>
+                    <li><a href="index.html">Accueil</a></li>
+                    <li><a href="equipe.html">Notre équipe</a></li>
+                    <li><a href="activite.html">Nos activités</a></li>
+                    <li><a href="ressource.html">Publications</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Faculté des Sciences Juridiques, Economiques & Sociales</p>
+                <p>Daoudiate B.P. 2380, 40000 Marrakech</p>
+                <p>Tél: (+212) 5 24 30 30 32</p>
+                <p>Fax: (+212) 5 24 30 32 65</p>
+            </div>
+        </div>
+
+        <div class="copyright">
+            &copy; 2023 GREFSO-Marrakech. Tous droits réservés.
+        </div>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemple d'intégration du script common.js</title>
+    <!-- Inclure le script common.js qui chargera automatiquement fix-css.js et appliquera les styles -->
+    <script src="common.js"></script>
+</head>
+<body>
+    <h1>Comment intégrer le script common.js</h1>
+    
+    <p>Pour intégrer le script common.js dans les pages HTML existantes, ajoutez simplement la ligne suivante dans la section &lt;head&gt; de chaque page :</p>
+    
+    <pre><code>&lt;script src="common.js"&gt;&lt;/script&gt;</code></pre>
+    
+    <p>Ce script chargera automatiquement fix-css.js qui appliquera les styles modernes à la page sans modifier sa structure HTML.</p>
+    
+    <h2>Exemple d'utilisation</h2>
+    
+    <p>Voici comment modifier le fichier calendrier.html :</p>
+    
+    <pre><code>&lt;HTML&gt;&lt;HEAD&gt;&lt;META http-equiv="Content-Type" content="text/html; charset=ISO-8859-15"&gt;
+&lt;TITLE&gt;Congr&egrave;s International&lt;/TITLE&gt;
+
+&lt;link rel="stylesheet" type="text/css" href="../ddlevelsfiles/ddlevelsmenu-base.css" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="../ddlevelsfiles/ddlevelsmenu-topbar.css" /&gt;
+&lt;link rel="stylesheet" type="text/css" href="../ddlevelsfiles/ddlevelsmenu-sidebar.css" /&gt;
+
+&lt;script type="text/javascript" src="../ddlevelsfiles/ddlevelsmenu.js"&gt;
+/***********************************************
+* All Levels Navigational Menu- (c) Dynamic Drive DHTML code library (http://www.dynamicdrive.com)
+* This notice MUST stay intact for legal use
+* Visit Dynamic Drive at http://www.dynamicdrive.com/ for full source code
+***********************************************/
+&lt;/script&gt;
+
+<strong>&lt;!-- Ajouter cette ligne pour intégrer le script common.js --&gt;
+&lt;script src="common.js"&gt;&lt;/script&gt;</strong>
+
+&lt;style type="text/css"&gt;
+&lt;!--
+.style1 {font-size: 14px}
+.style3 {font-size: 14px; color: #FF6600; }
+.style4 {
+	font-size: 16px;
+	color: #CC0000;
+}
+.style9 {font-size: 16px; color: #333333; }
+.style10 {color: #333333}
+.style11 {color: #000000}
+.style12 {color: #990033}
+--&gt;
+&lt;/style&gt;
+&lt;/HEAD&gt;</code></pre>
+    
+    <p>Répétez cette opération pour toutes les pages HTML du répertoire colloque2010.</p>
+    
+    <h2>Résultat</h2>
+    
+    <p>Après avoir ajouté le script common.js, les pages HTML bénéficieront des styles modernes sans modification de leur structure.</p>
+</body>
+</html>

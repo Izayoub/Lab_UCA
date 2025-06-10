@@ -1,0 +1,111 @@
+/* CSS for colloque2010 pages */
+:root {
+    --primary-color: #A51029;
+    --secondary-color: #660033;
+    --light-color: #F5E2E2;
+    --dark-color: #333333;
+    --accent-color: #FF6600;
+    --text-color: #333333;
+    --bg-color: #FFFFFF;
+}
+
+body {
+    background-color: var(--light-color);
+    color: var(--text-color);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td {
+    padding: 8px;
+}
+
+/* Menu styling */
+.markermenu {
+    width: 200px;
+    margin-bottom: 20px;
+}
+
+.markermenu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.markermenu ul li {
+    margin-bottom: 5px;
+}
+
+.markermenu ul li a {
+    display: block;
+    padding: 8px 10px;
+    background-color: var(--light-color);
+    color: var(--primary-color);
+    text-decoration: none;
+    border-left: 4px solid var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.markermenu ul li a:hover {
+    background-color: var(--primary-color);
+    color: white;
+    border-left: 4px solid var(--secondary-color);
+}
+
+/* Content styling */
+p {
+    margin-bottom: 1rem;
+}
+
+ul, ol {
+    margin-bottom: 1rem;
+    padding-left: 2rem;
+}
+
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    padding-left: 1rem;
+    margin-left: 0;
+}
+
+/* Custom styles from the original file */
+.style1 {font-size: 14px}
+.style3 {font-size: 14px; color: #FF6600; }
+.style4 {
+    font-size: 16px;
+    color: #CC0000;
+}
+.style9 {font-size: 16px; color: #333333; }
+.style10 {color: #333333}
+.style11 {color: #000000}
+.style12 {color: #990033}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .markermenu {
+        width: 100%;
+    }
+}
