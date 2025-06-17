@@ -14,10 +14,72 @@ include_once 'includes/header.php';
 // Include left sidebar
 include_once 'includes/sidebar-left.php';
 ?>
+<?php
+/**
+ * Fonction pour obtenir le chemin de l'image hero avec extension dynamique
+ * À ajouter dans votre fichier includes/config.php ou functions.php
+ */
 
+function get_hero_image_path() {
+    $hero_dir = 'uploads/hero/';
+    $hero_filename = 'hero-image';
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+    
+    // Chercher le fichier hero-image avec n'importe quelle extension
+    foreach ($allowed_extensions as $ext) {
+        $file_path = $hero_dir . $hero_filename . '.' . $ext;
+        if (file_exists($file_path)) {
+            return $file_path;
+        }
+    }
+    
+    // Si aucun fichier trouvé, retourner une image par défaut
+    return 'assets/images/default-hero.jpg';
+}
+
+/**
+ * Fonction pour obtenir l'URL complète de l'image hero
+ */
+function get_hero_image_url() {
+    $hero_path = get_hero_image_path();
+    
+    // S'assurer que le chemin commence par /
+    if (!str_starts_with($hero_path, '/')) {
+        $hero_path = '/' . $hero_path;
+    }
+    
+    return $hero_path;
+}
+
+/**
+ * Fonction alternative utilisant glob() pour plus d'efficacité
+ */
+function get_hero_image_path_glob() {
+    $hero_dir = 'uploads/hero/';
+    $hero_pattern = $hero_dir . 'hero-image.*';
+    
+    // Utiliser glob pour trouver tous les fichiers correspondant au pattern
+    $files = glob($hero_pattern);
+    
+    if (!empty($files)) {
+        // Retourner le premier fichier trouvé
+        return $files[0];
+    }
+    
+    // Image par défaut si aucun fichier trouvé
+    return 'assets/images/default-hero.jpg';
+}
+
+// ========================================
+// UTILISATION DANS VOS PAGES
+// ========================================
+
+// Récupérer le chemin de l'image hero
+$hero_image_url = get_hero_image_url();
+?>
 <!-- Hero Section si activée -->
 <?php if ($show_hero): ?>
-<div class="hero-section bg-primary-600 text-white py-20" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/images/hero-bg.jpg') no-repeat center center; background-size: cover;">
+<div class="hero-section bg-primary-600 text-white py-20" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('<?php echo htmlspecialchars($hero_image_url); ?>') no-repeat center center; background-size: cover;">
     <div class="container mx-auto text-center">
         <h1 class="text-4xl md:text-5xl font-bold mb-4">LIRE-RMD</h1>
         <p class="text-xl md:text-2xl mb-8">Groupe de Recherche sur les Entreprises Familiales et les Stratégies des Organisations</p>
@@ -156,11 +218,11 @@ include_once 'includes/sidebar-left.php';
             ?>
         </div>
         
-        <div class="mt-8 text-center">
+       <!--  <div class="mt-8 text-center">
             <a href="actualites.php" class="inline-flex items-center bg-gray-100 hover:bg-gray-200 text-gray-800 px-6 py-2 rounded-lg font-medium transition duration-300">
                 <i class="fas fa-list mr-2"></i> Toutes les actualités
             </a>
-        </div>
+        </div> -->
     </article>
 </main>
 

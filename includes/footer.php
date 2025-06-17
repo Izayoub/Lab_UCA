@@ -1,6 +1,5 @@
 </div>
     </div>
-
     <!-- Newsletter Section -->
     <section class="bg-gradient-to-r from-primary-700 to-primary-600 text-white py-14">
         <div class="container mx-auto px-4 text-center" data-aos="fade-up">
